@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Educational Theme Colors - HSL Format */
+  --color-primary: 199 89% 48%;
+  --color-primary-dark: 199 89% 38%;
+  --color-secondary: 158 64% 52%;
+  --color-secondary-dark: 158 64% 42%;
+  
+  /* Surface Colors */
+  --color-surface: 0 0% 100%;
+  --color-surface-elevated: 210 17% 98%;
+  --color-background: 210 20% 98%;
+  
+  /* Text Colors */
+  --color-foreground: 222 47% 11%;
+  --color-muted: 215 16% 47%;
+  
+  /* Border */
+  --color-border: 214 32% 91%;
+  
+  /* Status Colors */
+  --color-success: 142 76% 36%;
+  --color-warning: 38 92% 50%;
+  --color-error: 0 84% 60%;
+  --color-info: 199 89% 48%;
+}
+
+.dark {
+  --color-surface: 222 47% 11%;
+  --color-surface-elevated: 217 33% 17%;
+  --color-background: 222 47% 11%;
+  --color-foreground: 210 20% 98%;
+  --color-muted: 215 20% 65%;
+  --color-border: 217 33% 17%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-foreground));
+}
+
+/* Component Styles */
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply btn bg-[hsl(var(--color-primary))] text-white hover:bg-[hsl(var(--color-primary-dark))] focus:ring-[hsl(var(--color-primary))];
+  }
+  
+  .btn-secondary {
+    @apply btn bg-[hsl(var(--color-secondary))] text-white hover:bg-[hsl(var(--color-secondary-dark))] focus:ring-[hsl(var(--color-secondary))];
+  }
+  
+  .btn-outline {
+    @apply btn border-2 border-[hsl(var(--color-primary))] text-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-primary))] hover:text-white focus:ring-[hsl(var(--color-primary))];
+  }
+  
+  .card {
+    @apply bg-[hsl(var(--color-surface))] rounded-lg p-6 border border-[hsl(var(--color-border))] shadow-sm;
+  }
+  
+  .input {
+    @apply w-full px-4 py-2 rounded-lg border border-[hsl(var(--color-border))] bg-[hsl(var(--color-surface))] text-[hsl(var(--color-foreground))] focus:outline-none focus:ring-2 focus:ring-[hsl(var(--color-primary))] focus:border-transparent;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-success {
+    @apply badge bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200;
+  }
+  
+  .badge-info {
+    @apply badge bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+  }
+  
+  .badge-warning {
+    @apply badge bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-[hsl(var(--color-primary))] to-[hsl(var(--color-secondary))] bg-clip-text text-transparent;
+  }
+}

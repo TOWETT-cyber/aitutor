@@ -1,0 +1,5 @@
+{
+  "run": "npm run dev",
+  "frontend_port": 3000,
+  "backend_port": 3001
+}
