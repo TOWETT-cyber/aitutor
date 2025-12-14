@@ -2,7 +2,7 @@
 
 A modern, AI-powered learning platform built with React, Node.js/Express, and OpenAI.
 
-## 🚀 Features
+##  Features
 
 - **AI-Powered Chat Tutor**: Get personalized explanations using OpenAI's GPT models
 - **Interactive Lessons**: Browse subjects and complete lessons at your own pace
@@ -12,7 +12,7 @@ A modern, AI-powered learning platform built with React, Node.js/Express, and Op
 - **Modern UI**: Beautiful, responsive design with Tailwind CSS
 - **JWT Authentication**: Secure user authentication and session management
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 **Frontend:**
 - React 18
@@ -29,7 +29,7 @@ A modern, AI-powered learning platform built with React, Node.js/Express, and Op
 - bcryptjs
 - OpenAI API
 
-## 📦 Installation
+##  Installation
 
 1. **Install dependencies:**
    ```bash
@@ -55,7 +55,7 @@ A modern, AI-powered learning platform built with React, Node.js/Express, and Op
    - Frontend dev server on `http://localhost:3000`
    - Backend API server on `http://localhost:3001`
 
-## 🎯 Available Scripts
+##  Available Scripts
 
 - `npm run dev` - Start both frontend and backend in development mode
 - `npm run dev:client` - Start only the frontend dev server
@@ -63,7 +63,7 @@ A modern, AI-powered learning platform built with React, Node.js/Express, and Op
 - `npm run build` - Build frontend for production
 - `npm run preview` - Preview production build
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 ├── src/                    # React frontend
@@ -82,7 +82,7 @@ A modern, AI-powered learning platform built with React, Node.js/Express, and Op
 └── index.html          # HTML entry point
 ```
 
-## 🔐 Authentication
+##  Authentication
 
 The app uses JWT-based authentication:
 - Users sign up with email and password
@@ -90,14 +90,14 @@ The app uses JWT-based authentication:
 - JWT token is stored in localStorage
 - Protected routes require valid authentication
 
-## 📚 Subjects Available
+##  Subjects Available
 
-1. **Mathematics** 🔢 - Algebra, equations, and more
-2. **Science** 🔬 - Photosynthesis, cell structure, physics
-3. **History** 📚 - Ancient civilizations and world events
-4. **Languages** 🌍 - Communication and language learning
+1. **Mathematics**  - Algebra, equations, and more
+2. **Science**  - Photosynthesis, cell structure, physics
+3. **History**  - Ancient civilizations and world events
+4. **Languages**  - Communication and language learning
 
-## 🤖 AI Chat Feature
+##  AI Chat Feature
 
 The AI chat uses OpenAI's API to provide real-time, streaming responses:
 - WebSocket connection for real-time communication
@@ -105,18 +105,18 @@ The AI chat uses OpenAI's API to provide real-time, streaming responses:
 - Streaming text for immediate feedback
 - Fallback responses if API is unavailable
 
-## 🎨 Design System
+##  Design System
 
 Educational theme with calming colors:
 - **Primary**: Ocean Blue (HSL 199° 89% 48%)
 - **Secondary**: Sage Green (HSL 158° 64% 52%)
 - **Clean typography** and **accessible UI**
 
-## 📝 License
+##  License
 
 MIT License - feel free to use this project for learning and development.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - OpenAI for the GPT API
 - React and Vite teams
