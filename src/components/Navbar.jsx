@@ -51,16 +51,22 @@ export default function Navbar() {
                 </button>
 
                 {dropdownOpen && (
-                  <div className="absolute right-0 mt-2 w-48 bg-[hsl(var(--color-surface))] rounded-lg shadow-lg border border-[hsl(var(--color-border))] z-50">
-                    <div className="py-1">
-                      <button
-                        onClick={handleLogout}
-                        className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-[hsl(var(--color-surface-elevated))] transition-colors"
-                      >
-                        Sign Out
-                      </button>
+                  <>
+                    <div 
+                      className="fixed inset-0 z-40" 
+                      onClick={() => setDropdownOpen(false)}
+                    />
+                    <div className="absolute right-0 mt-2 w-48 bg-[hsl(var(--color-surface))] rounded-lg shadow-lg border border-[hsl(var(--color-border))] z-50">
+                      <div className="py-1">
+                        <button
+                          onClick={handleLogout}
+                          className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-[hsl(var(--color-surface-elevated))] transition-colors"
+                        >
+                          Sign Out
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  </>
                 )}
               </div>
             ) : (
