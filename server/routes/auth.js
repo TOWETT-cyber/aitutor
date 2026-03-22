@@ -11,35 +11,29 @@ router.post('/signup', async (req, res) => {
   try {
     const { name, email, password } = req.body
 
-    // Validate input
     if (!email || !password) {
       return res.status(400).json({ error: 'Email and password are required' })
     }
 
-    // Check if user exists
-    const existingUser = db.findUserByEmail(email)
+    const existingUser = await db.findUserByEmail(email)
     if (existingUser) {
       return res.status(400).json({ error: 'User already exists' })
     }
 
-    // Hash password
     const hashedPassword = await bcrypt.hash(password, 10)
 
-    // Create user
-    const user = db.createUser({
+    const user = await db.createUser({
       name: name || email.split('@')[0],
       email,
       password: hashedPassword
     })
 
-    // Generate token
     const token = jwt.sign(
       { userId: user.id },
       process.env.JWT_SECRET || 'your-secret-key',
       { expiresIn: '7d' }
     )
 
-    // Return user without password
     const { password: _, ...userWithoutPassword } = user
     res.json({ token, user: userWithoutPassword })
   } catch (error) {
@@ -53,31 +47,26 @@ router.post('/login', async (req, res) => {
   try {
     const { email, password } = req.body
 
-    // Validate input
     if (!email || !password) {
       return res.status(400).json({ error: 'Email and password are required' })
     }
 
-    // Find user
-    const user = db.findUserByEmail(email)
+    const user = await db.findUserByEmail(email)
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials' })
     }
 
-    // Check password
     const isValidPassword = await bcrypt.compare(password, user.password)
     if (!isValidPassword) {
       return res.status(401).json({ error: 'Invalid credentials' })
     }
 
-    // Generate token
     const token = jwt.sign(
       { userId: user.id },
       process.env.JWT_SECRET || 'your-secret-key',
       { expiresIn: '7d' }
     )
 
-    // Return user without password
     const { password: _, ...userWithoutPassword } = user
     res.json({ token, user: userWithoutPassword })
   } catch (error) {
@@ -87,8 +76,10 @@ router.post('/login', async (req, res) => {
 })
 
 // Get current user
-router.get('/me', authenticateToken, (req, res) => {
-  const { password: _, ...userWithoutPassword } = req.user
+router.get('/me', authenticateToken, async (req, res) => {
+  const user = await db.findUserById(req.user.userId)
+  if (!user) return res.status(404).json({ error: 'User not found' })
+  const { password: _, ...userWithoutPassword } = user
   res.json({ user: userWithoutPassword })
 })
 
